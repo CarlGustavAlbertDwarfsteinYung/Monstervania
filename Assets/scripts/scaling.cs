@@ -3,16 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class scaling : MonoBehaviour {
-
-    Sprite sprite;
     float x;
-    float y;
-    float prev_y;
+
+    public int layer;
 
     Collider2D scaleCol;
     // Use this for initialization
     void Start() {
-        //sprite = GetComponent<Sprite>();
         x = transform.position.x;
     }
 
@@ -20,14 +17,16 @@ public class scaling : MonoBehaviour {
     void FixedUpdate()
     {
 
+        //if object is visible
         if (transform.position.y >= -1.3 && transform.position.y <= 0)
         {
+            layer = Mathf.RoundToInt(transform.position.y * -1);
+            GetComponent<SpriteRenderer>().sortingOrder = layer;
+
             transform.localScale = new Vector2(1, 1) * Mathf.Abs(transform.position.y) * 0.83333f;
 
             transform.position = new Vector3(x * transform.position.y, transform.position.y);
 
-
-            //gameObject.GetComponent<BoxCollider2D>().size = new Vector2(0, transform.position.y);
         }
         else
         {
