@@ -19,24 +19,20 @@ public class scaling : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate()
     {
-        y = transform.position.y;
-        if (y != prev_y)
+
+        if (transform.position.y >= -1.3 && transform.position.y <= 0)
         {
-            if (transform.position.y >= -1.3 && transform.position.y <= 0)
-            {
-                transform.localScale = new Vector2(1, 1) * Mathf.Abs(transform.position.y) * 0.8333333f;
-                
-                transform.position = new Vector3(x * transform.position.y, transform.position.y);
+            transform.localScale = new Vector2(1, 1) * Mathf.Abs(transform.position.y) * 0.83333f;
+
+            transform.position = new Vector3(x * transform.position.y, transform.position.y);
 
 
-                //gameObject.GetComponent<BoxCollider2D>().size = new Vector2(0, transform.position.y);
-            }
-            else
-            {
-                transform.localScale = new Vector2(0, 0);
-            }
-
-            prev_y = y;
+            //gameObject.GetComponent<BoxCollider2D>().size = new Vector2(0, transform.position.y);
         }
+        else
+        {
+            transform.localScale = new Vector2(0, 0);
+        }
+
     }
 }

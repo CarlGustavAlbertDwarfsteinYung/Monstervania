@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class plusHeart : MonoBehaviour
+public class healthminus : MonoBehaviour
 {
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -10,7 +10,7 @@ public class plusHeart : MonoBehaviour
         if (collision.tag == "Player")
         {
             Debug.Log("in plus");
-            GameControlScript.health += 1;
+            game_controls.health += 1;
 
         }
     }

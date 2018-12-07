@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameControlScript : MonoBehaviour {
+public class game_controls : MonoBehaviour {
 
     public GameObject heart1, heart2, heart3,gameOver;
     public static int health;

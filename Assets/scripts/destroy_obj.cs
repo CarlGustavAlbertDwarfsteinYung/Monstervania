@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class destroyObject : MonoBehaviour {
+public class destroy_obj : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

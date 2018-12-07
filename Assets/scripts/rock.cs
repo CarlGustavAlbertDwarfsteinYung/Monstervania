@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class rockMovement : MonoBehaviour {
+public class rock : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
