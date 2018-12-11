@@ -7,6 +7,8 @@ TagManager:
   - mountain
   - sky
   - rock
+  - fireball
+  - ghost
   layers:
   - Default
   - TransparentFX

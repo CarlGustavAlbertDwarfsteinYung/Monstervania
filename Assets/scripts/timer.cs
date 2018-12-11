@@ -14,15 +14,28 @@ public class timer : MonoBehaviour {
     }
     void Update()
     {
-        timeLeft -= Time.fixedDeltaTime;
-        int seconds = (int)(timeLeft % 60);
-        int minutes = (int)(timeLeft / 60) % 60;
-        string timeString = string.Format("{0:00}:{1:00}", minutes, seconds);
-        TimerText.text = "Time: " + timeString;
-        if(timeString == zero){
-            timeLeft = 0.0f;
-            gameOver.gameObject.SetActive(true);
+        string timeString="";
+        if (game_controls.isGameOver)
+        {
+            //ssDebug.Log("inside");
+            TimerText.text = "Time: " + timeString;
 
+        }
+        else
+        {
+            timeLeft -= Time.fixedDeltaTime;
+            int seconds = (int)(timeLeft % 60);
+            int minutes = (int)(timeLeft / 60) % 60;
+             timeString = string.Format("{0:00}:{1:00}", minutes, seconds);
+            TimerText.text = "Time: " + timeString;
+            if (timeString == zero)
+            {
+                timeLeft = 0.0f;
+                gameOver.gameObject.SetActive(true);
+                game_controls.isGameOver = true;
+                Time.timeScale = 0;
+
+            }
         }
     }
 
