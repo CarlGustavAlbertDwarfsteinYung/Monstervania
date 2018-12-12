@@ -95,18 +95,18 @@ TextureImporter:
       name: boulder_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 3
-        width: 58
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 67
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c48626ad08a77140a4bb67029d365ee
+      spriteID: f1c35430b245b6a40921ffb2a0b014fb
       vertices: []
       indices: 
       edges: []
@@ -115,18 +115,18 @@ TextureImporter:
       name: boulder_1
       rect:
         serializedVersion: 2
-        x: 71
-        y: 3
-        width: 58
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 67
+        y: 0
+        width: 67
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 796f0f2cf0b45f34e8064cacf5dd7634
+      spriteID: eb355494905166547a7069cba2bb58b4
       vertices: []
       indices: 
       edges: []
@@ -135,18 +135,18 @@ TextureImporter:
       name: boulder_2
       rect:
         serializedVersion: 2
-        x: 138
-        y: 3
-        width: 58
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 134
+        y: 0
+        width: 67
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0123615ee98ef6340879609196b4dbea
+      spriteID: d4dc22306dc3ff04bb8d923a47cf4491
       vertices: []
       indices: 
       edges: []
@@ -155,18 +155,18 @@ TextureImporter:
       name: boulder_3
       rect:
         serializedVersion: 2
-        x: 205
-        y: 3
-        width: 58
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 201
+        y: 0
+        width: 67
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab3af0e35755a484f97c1d597fbd8889
+      spriteID: 5d14e30cf786ec0438e68f1963ddf99e
       vertices: []
       indices: 
       edges: []
@@ -175,18 +175,18 @@ TextureImporter:
       name: boulder_4
       rect:
         serializedVersion: 2
-        x: 272
-        y: 3
-        width: 58
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 268
+        y: 0
+        width: 67
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0af52810466f0b94cb32cb8d679e1320
+      spriteID: 39cda4bf8558a774bb16604b339c0bfd
       vertices: []
       indices: 
       edges: []
@@ -195,18 +195,18 @@ TextureImporter:
       name: boulder_5
       rect:
         serializedVersion: 2
-        x: 339
-        y: 3
-        width: 58
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 335
+        y: 0
+        width: 67
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16afc040b44781143a83aa6a1d191208
+      spriteID: 7ffa79cebd72a214bbd8d8a47af1013f
       vertices: []
       indices: 
       edges: []
@@ -215,18 +215,18 @@ TextureImporter:
       name: boulder_6
       rect:
         serializedVersion: 2
-        x: 406
-        y: 3
-        width: 58
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 402
+        y: 0
+        width: 67
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccc40ed117979014eaa50ddbbb75900a
+      spriteID: 60c63deabf132b34399bf4ca47467cae
       vertices: []
       indices: 
       edges: []
@@ -235,18 +235,18 @@ TextureImporter:
       name: boulder_7
       rect:
         serializedVersion: 2
-        x: 473
-        y: 3
-        width: 58
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 469
+        y: 0
+        width: 67
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf86f74a7e714f54986a0e80f9b7185b
+      spriteID: f901de95f2b818041894cf775a882de0
       vertices: []
       indices: 
       edges: []

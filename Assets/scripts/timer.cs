@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class timer : MonoBehaviour {
 
     public GameObject gameOver;
-    float timeLeft = 120.0f;
+    float timeLeft = 400.0f;
     private string zero = "00:00"; 
     public Text TimerText;
     private void Start()
@@ -15,7 +15,7 @@ public class timer : MonoBehaviour {
     void Update()
     {
         string timeString="";
-        if (game_controls.isGameOver)
+        if (player.game_over)
         {
             //ssDebug.Log("inside");
             TimerText.text = "Time: " + timeString;
@@ -32,7 +32,7 @@ public class timer : MonoBehaviour {
             {
                 timeLeft = 0.0f;
                 gameOver.gameObject.SetActive(true);
-                game_controls.isGameOver = true;
+                player.game_over = true;
                 Time.timeScale = 0;
 
             }
