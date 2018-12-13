@@ -61,7 +61,7 @@ public class player : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate () {
 
-        if(game.map.transform.position.y < -38 && game.flying_enemy_o.activeSelf==false)
+        if(game.map.transform.position.y < -28 && game.flying_enemy_o.activeSelf==false)
         {
             game.flying_enemy_o.SetActive(true);
             move_speed = 0f;
