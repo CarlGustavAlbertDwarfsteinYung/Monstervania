@@ -39,6 +39,11 @@ public class player : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
+        if (game.map.transform.position.y < -38 && game.flying_enemy_o.activeSelf == false) {
+            game.flying_enemy_o.SetActive(true);
+            move_speed = 0f;
+        }
+
         //new speedup added on the stack
 
         health_sprite.size = new Vector2(0.07f * health, 0.06f);
