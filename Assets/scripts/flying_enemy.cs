@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class flying_enemy : MonoBehaviour {
 	float moveSpeed = 1f;
@@ -15,13 +16,16 @@ public class flying_enemy : MonoBehaviour {
     int shot_time;
     const int start_shot_time = 60;
 
-	// Use this for initialization
-	void Start () {
+    private static int noHits = 0;
+
+    Color primaryColor;
+    // Use this for initialization
+    void Start () {
         shot_time = start_shot_time;
         pos = transform.position;
 		localScale = transform.localScale;
-
-		Physics2D.IgnoreLayerCollision(10, 31);
+        primaryColor = this.gameObject.GetComponent<Renderer>().material.color;
+        Physics2D.IgnoreLayerCollision(10, 31);
 
 	}
 	
@@ -86,4 +90,27 @@ public class flying_enemy : MonoBehaviour {
 		pos -= transform.right * Time.deltaTime * moveSpeed;
 		transform.position = pos + transform.up * Mathf.Sin(Time.time * frequency) * magnitude;
 	}
+
+
+    private IEnumerator OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "rockThrow")
+        {
+            noHits++;
+            
+            this.gameObject.GetComponent<Renderer>().material.color = Color.red;
+            yield return new WaitForSeconds(0.2f);
+            this.gameObject.GetComponent<Renderer>().material.color = primaryColor;
+            if (noHits==10)
+            {
+                Destroy(this.gameObject);
+                game.wingame_label.SetActive(true);
+                Time.timeScale = 0;
+                //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+                //player.isRestarted = true;
+            }
+        }
+        
+    }
 }

@@ -9,6 +9,8 @@ TagManager:
   - rock
   - fireball
   - ghost
+  - rockSpawn
+  - rockThrow
   layers:
   - Default
   - TransparentFX
@@ -48,6 +50,9 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 1091683623
+    locked: 0
+  - name: rock
+    uniqueID: 3520706321
     locked: 0
   - name: Map
     uniqueID: 1432571907
