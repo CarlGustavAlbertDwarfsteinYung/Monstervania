@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: a4800031aa57e744fabf2cd837f32153
+guid: a4c773aa6d8d93640a705db890823bc3
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
-  fontSize: 5
+  fontSize: 9
   forceTextureCase: -2
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: mom-5px
+  fontName: uwfont 9px
   fontNames:
-  - font5px
+  - uwfont 9px
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 2

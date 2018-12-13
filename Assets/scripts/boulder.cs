@@ -3,28 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class boulder : MonoBehaviour {
+	float speed = 0.28f;
+	bool pl_hit;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
 	// Update is called once per frame
 	void FixedUpdate () {
-        transform.position = new Vector2(transform.position.x, transform.position.y - 0.004f);
-	
-		if (transform.position.y < -10) {
+		transform.position += Vector3.down * speed * Time.deltaTime; 
+
+		if (transform.position.y < -2) {
 			Destroy(gameObject);
-		}
+			Debug.Log("hello");
+		} 
 
-		bool pl_hit = GetComponent<Collider2D>().IsTouchingLayers(LayerMask.GetMask("Player"));
+		pl_hit = GetComponent<Collider2D>().IsTouchingLayers(LayerMask.GetMask("Player"));
 
-		if (pl_hit) {
-			if (player.compare_values(GameObject.Find("player_body").transform.position.y + GameObject.Find("player").transform.position.y, transform.position.y, 0.1f)) {
+
+		if (player.compare_values(player.y, transform.position.y, 0.02f) && pl_hit) {
+			if (player.height < 0.1f) {
 				Destroy(gameObject);
 				player.health -= 1;
 			}
 		}
-
 	}
 }
