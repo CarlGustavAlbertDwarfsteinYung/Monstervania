@@ -24,12 +24,10 @@ public class fireball : MonoBehaviour
     // damage player and leave
     private void OnTriggerEnter2D(Collider2D col)
     {
-
         if (col.name == "player_body")
         {
-            Destroy(gameObject);
             player.health -= 1;
         }
-
+        Destroy(gameObject);
     }
 }

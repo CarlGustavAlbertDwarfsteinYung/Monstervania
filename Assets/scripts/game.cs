@@ -19,6 +19,8 @@ public class game : MonoBehaviour {
 	public static GameObject timer_label_o;
 	public static GameObject endgame_label_o;
 
+	public static GameObject dialogue_o;
+
 	AudioSource music;
 
 	void Start() {
@@ -42,10 +44,12 @@ public class game : MonoBehaviour {
 		endgame_label_o.SetActive(false);
 
 		music = GameObject.Find("camera").GetComponent<AudioSource>();
+		dialogue_o = GameObject.Find("dialogue");
+		dialogue_o.SetActive(false);
 	}
 
 	public void start_game() {
-		start = true;
+		//start = true;
 
 		player_o.SetActive(true);
 		timer_label_o.SetActive(true);
@@ -56,10 +60,19 @@ public class game : MonoBehaviour {
 		start_b.SetActive(false);
 		quit_b.SetActive(false);
 
+		dialogue_o.SetActive(true);
+
 		music.Stop();
+
+		dialogue.full_text = "I see the village burning! Must get there. No time to waste!";
+		dialogue.delay = 420;
 	}
 
 	void FixedUpdate() {
+		if (dialogue_o.activeSelf && dialogue.delay == 0 && !start) {
+			start = true;
+		}
+
 		if (start) {
 			if(Input.GetKeyDown(KeyCode.Escape)) {
 				menu = !menu;
