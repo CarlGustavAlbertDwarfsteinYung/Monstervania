@@ -27,8 +27,8 @@ public class flying_enemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-
-		if (shot_time > 0) {
+		if (game.start == true) {
+				if (shot_time > 0) {
             shot_time--;
         } else {
             //RaycastHit2D hit = Physics2D.Raycast(transform.position,player.transform.position);
@@ -57,6 +57,7 @@ public class flying_enemy : MonoBehaviour {
 			MoveRight ();
 		else
 			MoveLeft ();
+		}
 	}
 
 	void CheckWhereToFace()
