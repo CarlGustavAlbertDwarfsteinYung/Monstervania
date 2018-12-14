@@ -48,21 +48,22 @@ public class player : MonoBehaviour {
     }
     void Update()
     {
-       myTime+= Time.deltaTime;  
-        if(Input.GetButton("Fire1")&& myTime > fireRate)
-        {
-            GameObject rockInstance = Instantiate(rock, GameObject.FindGameObjectWithTag("rockSpawn").transform.position, Quaternion.identity);
-            // rockInstance.GetComponent<Rigidbody2D>().AddForce(new Vector2(0,1) * 5, ForceMode2D.Impulse);
-            rockInstance.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, 2.0f);
-            myTime = 0.0f;
+        if (game.start) {
+        myTime+= Time.deltaTime;  
+            if(Input.GetButton("Fire1")&& myTime > fireRate)
+            {
+                GameObject rockInstance = Instantiate(rock, GameObject.FindGameObjectWithTag("rockSpawn").transform.position, Quaternion.identity);
+                // rockInstance.GetComponent<Rigidbody2D>().AddForce(new Vector2(0,1) * 5, ForceMode2D.Impulse);
+                rockInstance.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, 2.0f);
+                myTime = 0.0f;
+            }
         }
     }
 
     // Update is called once per frame
     void FixedUpdate () {
         if (game.start) {
-     if(game.map.transform.position.y < -28 && game.flying_enemy_o.activeSelf==false)
-            {
+            if(game.map.transform.position.y < -28 && game.flying_enemy_o.activeSelf==false){
                 game.flying_enemy_o.SetActive(true);
                 move_speed = 0f;
             }
