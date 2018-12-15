@@ -32,28 +32,28 @@ public class flying_enemy : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		if (game.start == true) {
-				if (shot_time > 0) {
-            shot_time--;
-        } else {
-            //RaycastHit2D hit = Physics2D.Raycast(transform.position,player.transform.position);
-            //if(hit.collider!=null)
-            //{
-                //GameControlScript.health = GameControlScript.health - 1;
-            //}
+			if (shot_time > 0) {
+                shot_time--;
+            } else {
+                //RaycastHit2D hit = Physics2D.Raycast(transform.position,player.transform.position);
+                //if(hit.collider!=null)
+                //{
+                    //GameControlScript.health = GameControlScript.health - 1;
+                //}
 
-            //Quaternion q = Quaternion.FromToRotation(transform.position, player.position);
-            //Quaternion q = Quaternion.LookRotation(transform.position);
-            Instantiate(Resources.Load("fireball"), transform.position,Quaternion.identity);
+                //Quaternion q = Quaternion.FromToRotation(transform.position, player.position);
+                //Quaternion q = Quaternion.LookRotation(transform.position);
+                Instantiate(Resources.Load("fireball"), transform.position,Quaternion.identity);
 
-           //>>>> Vector2 lookAt = player.transform.position - g.transform.position;
-           // Vector2 mov = transform.forward * 5f;
-            //g.transform.rotation = Quaternion.Slerp(g.transform.rotation, Quaternion.LookRotation(lookAt),Time.deltaTime);
-           //>>>>>  g.transform.rotation = Quaternion.FromToRotation(new Vector2(Mathf.Abs(g.transform.position.x),g.transform.position.y), player.transform.position);
-            //g.transform.rotation = Quaternion.LookRotation(lookAt);
-            shot_time = start_shot_time;
+            //>>>> Vector2 lookAt = player.transform.position - g.transform.position;
+            // Vector2 mov = transform.forward * 5f;
+                //g.transform.rotation = Quaternion.Slerp(g.transform.rotation, Quaternion.LookRotation(lookAt),Time.deltaTime);
+            //>>>>>  g.transform.rotation = Quaternion.FromToRotation(new Vector2(Mathf.Abs(g.transform.position.x),g.transform.position.y), player.transform.position);
+                //g.transform.rotation = Quaternion.LookRotation(lookAt);
+                shot_time = start_shot_time;
 
-            //print(transform.position + "   " + player.position +" "+ transform.position.magnitude);
-        }
+                //print(transform.position + "   " + player.position +" "+ transform.position.magnitude);
+         }
 
 		CheckWhereToFace ();
 
@@ -98,14 +98,16 @@ public class flying_enemy : MonoBehaviour {
         {
             noHits++;
             
-            this.gameObject.GetComponent<Renderer>().material.color = Color.red;
+            gameObject.GetComponent<Renderer>().material.color = Color.red;
+
             yield return new WaitForSeconds(0.2f);
-            this.gameObject.GetComponent<Renderer>().material.color = primaryColor;
-            if (noHits==10)
+
+            gameObject.GetComponent<Renderer>().material.color = primaryColor;
+            if (noHits == 10)
             {
+                Instantiate(Resources.Load("zadar"), transform.position , Quaternion.identity);
+                //Time.timeScale = 0;
                 Destroy(this.gameObject);
-                game.wingame_label.SetActive(true);
-                Time.timeScale = 0;
                 //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
                 //player.isRestarted = true;

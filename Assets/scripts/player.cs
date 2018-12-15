@@ -8,19 +8,16 @@ public class player : MonoBehaviour {
     public static float hunger = 10.0f;
     public static float height; //defines jumping
     public static float y = -1.184f;
-
     public static bool isRestarted = false;
     public GameObject rock;
     public GameObject rockspawn;
-    public float fireRate = 0.5f;
-    private float myTime = 0.0f;
-
-    public static int timer = 0;
+    const int fire_rate = 60;
+    int fire_timer = 0;
     Rigidbody2D rb;
     Collider2D col;
     Animator anim;
     public static float move_speed = 0.008f;
-    float sidestep_speed = 0.4f;
+    float sidestep_speed = 0.6f;
     float jump_speed = 16.0f;
     //AudioSource sound;
     float hor;
@@ -29,12 +26,8 @@ public class player : MonoBehaviour {
     const float distance_speed = 0.00001f;
     const float sky_speed = 0.0025f;
 
-
     SpriteRenderer health_sprite;
     SpriteRenderer hunger_sprite;
-
-    //Throwable rock
-    
 
     // Use this for initialization
     void Start () {
@@ -46,27 +39,26 @@ public class player : MonoBehaviour {
         col = gameObject.GetComponentInChildren<Collider2D>();
         y = transform.position.y;
     }
-    void Update()
-    {
-        if (game.start) {
-        myTime+= Time.deltaTime;  
-            if(Input.GetButton("Fire1")&& myTime > fireRate)
-            {
-                GameObject rockInstance = Instantiate(rock, GameObject.FindGameObjectWithTag("rockSpawn").transform.position, Quaternion.identity);
-                // rockInstance.GetComponent<Rigidbody2D>().AddForce(new Vector2(0,1) * 5, ForceMode2D.Impulse);
-                rockInstance.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, 2.0f);
-                myTime = 0.0f;
-            }
-        }
-    }
 
     // Update is called once per frame
     void FixedUpdate () {
         if (game.start) {
-            if(game.map.transform.position.y < -28 && game.flying_enemy_o.activeSelf==false){
-                game.flying_enemy_o.SetActive(true);
-                move_speed = 0f;
+
+            if((Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.Mouse0)) && fire_timer == 0) {
+                GameObject rockInstance = Instantiate(rock, GameObject.FindGameObjectWithTag("rockSpawn").transform.position, Quaternion.identity);
+                rockInstance.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, 2.0f);
+                fire_timer = fire_rate;
+            } else if (fire_timer > 0) {
+                fire_timer--;
             }
+
+            if (game.flying_enemy_o != null) {
+                if(game.map_o.transform.position.y <= -42 && game.flying_enemy_o.activeSelf==false){
+                    game.flying_enemy_o.SetActive(true);
+                    move_speed = 0f;
+                }
+            }
+
             //new speedup added on the stack
 
             if(health<=0 )
@@ -79,8 +71,6 @@ public class player : MonoBehaviour {
             }
             health_sprite.size = new Vector2(0.07f * health, 0.06f);
             hunger_sprite.size = new Vector2(0.07f * hunger, 0.06f);
-
-            
 
             anim.SetBool("jump", jump);
             anim.SetFloat("ver", ver);
@@ -102,12 +92,12 @@ public class player : MonoBehaviour {
             }
 
             // FORWARD BACKWARDS
-            if (Input.GetKey(KeyCode.W) && game.map.transform.position.y > -40) {
-                game.map.transform.position = new Vector2(game.map.transform.position.x, game.map.transform.position.y - move_speed);
+            if (Input.GetKey(KeyCode.W) && game.map_o.transform.position.y >= -42) {
+                game.map_o.transform.position = new Vector2(game.map_o.transform.position.x, game.map_o.transform.position.y - move_speed);
                 ver = 1;
                 hunger -= 0.002f;
-            } else if (Input.GetKey(KeyCode.S) && game.map.transform.position.y < 0) {
-                game.map.transform.position = new Vector2(game.map.transform.position.x, game.map.transform.position.y + move_speed);
+            } else if (Input.GetKey(KeyCode.S) && game.map_o.transform.position.y < 0) {
+                game.map_o.transform.position = new Vector2(game.map_o.transform.position.x, game.map_o.transform.position.y + move_speed);
                 ver = -1;
                 hunger -= 0.002f;
             } else if (ver != 0) {

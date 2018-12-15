@@ -35,8 +35,15 @@ public class scaling : MonoBehaviour {
         } 
 
     } */
+
+    SpriteRenderer sr;
+
+    void Start() {
+        sr = GetComponent<SpriteRenderer>();
+    }
+
     void FixedUpdate()
     {
-        GetComponent<SpriteRenderer>().sortingOrder = Mathf.RoundToInt(transform.position.y * -100) - 120;
+        sr.sortingOrder = Mathf.RoundToInt(transform.position.y * -100) - 120;
     }
 }

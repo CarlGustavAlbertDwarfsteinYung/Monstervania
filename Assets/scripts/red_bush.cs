@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class red_bush : MonoBehaviour {
 	bool berry = true;
-
-	[SerializeField]	
+	
 	public Sprite bush;
 	
 	Collider2D col;

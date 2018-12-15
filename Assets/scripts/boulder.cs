@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class boulder : MonoBehaviour {
-	float y;
+//	float y;
 	float speed = 0.28f;
 	bool pl_hit;
 
+	Collider2D col;
+
 	void Start() {
-		y = transform.position.y;
+	//	y = transform.position.y;
+		col = GetComponent<Collider2D>();
 	}
 
 	// Update is called once per frame
@@ -20,16 +23,14 @@ public class boulder : MonoBehaviour {
 
 			if (transform.position.y < -2) {
 				Destroy(gameObject);
-				Debug.Log("hello");
 			} 
 
-			pl_hit = GetComponent<Collider2D>().IsTouchingLayers(LayerMask.GetMask("Player"));
-
-
-			if (player.compare_values(player.y, transform.position.y, 0.02f) && pl_hit) {
-				if (player.height < 0.1f) {
-					Destroy(gameObject);
-					player.health -= 1;
+			if(col.IsTouchingLayers(LayerMask.GetMask("Player"))) {
+				if (player.compare_values(player.y, transform.position.y, 0.02f)) {
+					if (player.height < 0.1f) {
+						Destroy(gameObject);
+						player.health -= 3;
+					}
 				}
 			}
 		}
